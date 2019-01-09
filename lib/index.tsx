@@ -7,12 +7,14 @@ import defaultStyles from './defaultStyles'
 interface Props {
   autoCapitalize: 'none' | 'sentences' | 'words' | 'characters'
   clearTextOnFocus: boolean
+  
   containerStyles?: any
   errorMessage?: string
   errorMessageContainerStyles?: any
   errorMessageTextStyles?: any
   focusedBorderColor: string
   handleChange: (otpCode: string) => void
+  inputsContainerStyle?: any
   inputContainerStyles?: any
   inputStyles?: any
   inputTextErrorColor?: string
@@ -139,6 +141,7 @@ export default class OtpInputs extends Component<Props, State> {
       errorMessage,
       errorMessageContainerStyles,
       errorMessageTextStyles,
+      inputsContainerStyle
     } = this.props
 
     return (
@@ -150,7 +153,7 @@ export default class OtpInputs extends Component<Props, State> {
             </Text>
           </View>
         )}
-        <View style={defaultStyles.inputsContainer}>{this._renderInputs()}</View>
+        <View style={[defaultStyles.inputsContainer, inputsContainerStyle]}>{this._renderInputs()}</View>
       </View>
     )
   }
