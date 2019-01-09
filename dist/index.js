@@ -55,14 +55,14 @@ export default class OtpInputs extends Component {
         this._renderInputs();
     }
     render() {
-        const { containerStyles, errorMessage, errorMessageContainerStyles, errorMessageTextStyles, } = this.props;
+        const { containerStyles, errorMessage, errorMessageContainerStyles, errorMessageTextStyles, inputsContainerStyle} = this.props;
         return (<View style={[defaultStyles.container, containerStyles]}>
         {errorMessage && (<View style={[defaultStyles.errorMessageContainer, errorMessageContainerStyles]}>
             <Text testID="errorText" style={errorMessageTextStyles}>
               {errorMessage}
             </Text>
           </View>)}
-        <View style={defaultStyles.inputsContainer}>{this._renderInputs()}</View>
+        <View style={[defaultStyles.inputsContainer, inputsContainerStyle]}>{this._renderInputs()}</View>
       </View>);
     }
 }
